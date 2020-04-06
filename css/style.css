@@ -1,0 +1,65 @@
+/* @import url('https://fonts.googleapis.com/css?family=Gamja+Flower'); */
+
+
+/* #f9ba32 sunshine
+#426E86 steel blue
+#f8f1e5 bone 
+#2f3131 coal */
+
+html,
+body {
+    width: 100%;
+    height: 100%;
+    /* font-family: 'Gamja Flower'; */
+    font-size: 13px;
+    color: #2f3131;
+}
+
+table>p {
+    line-height: 0px !important;
+}
+
+table {
+    width: 100%;
+    padding-top: 5px;
+}
+
+.container-fluid {
+    padding: 5px;
+}
+
+.navbar {
+    background-color: #0275d8 !important;
+    /* background-color: #426E86 !important; */
+}
+
+.navbar li a {
+    color: white !important;
+}
+
+.navbar li a:hover {
+    color: #f8f1e5 !important;
+}
+
+.navbar li.active {
+    color: #ffffff !important;
+    background-color: #f9ba32;
+    border-radius: 5px;
+    text-align: center;
+}
+
+.btn-circle {
+    width: 20px;
+    height: 20px;
+    text-align: center;
+    padding: 1px 0;
+    margin-top: 0px;
+    font-size: 12px;
+    line-height: 1.428571429;
+    border-radius: 15px;
+}
+
+.list-group-item {
+    /* padding-bottom: 0px; */
+    font-size: 13px;
+}

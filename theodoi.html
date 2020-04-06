@@ -1,0 +1,274 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>BH2PWA</title>
+    <link rel="manifest" href="web.manifest">
+    <link rel="icon" href="favicon.ico" type="image/x-icon" />
+    <link rel="apple-touch-icon" href="./images/hello-icon-152.png">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="white" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="BH2PWA">
+    <meta name="msapplication-TileImage" content="images/hello-icon-144.png">
+    <meta name="msapplication-TileColor" content="#FFFFFF">
+    <meta http-equiv="X-UA-compatible" content="ie-edge">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel='stylesheet' href='https://use.fontawesome.com/releases/v5.0.4/css/all.css' />
+    <!-- Bootstrap dataTables -->
+    <link href="vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
+    <!-- Bootstrap datetimepicker -->
+    <link href="vendor/datetimepicker/css/bootstrap-datetimepicker.css" rel="stylesheet">
+    <!-- Chart -->
+    <link href="vendor/Chart/Chart.min.css" rel="stylesheet">
+    <!-- Common -->
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+
+<body>
+
+    <nav class="navbar navbar-expand-md navbar-light bg-light sticky-top">
+        <a class="nav-branch">
+            <img src="./images/evn_logo.png" height="50">
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+        <!-- <div class="collapse navbar-collapse" id="navbarResponsive"> -->
+        <div class="navbar-collapse collapse" id="navbarResponsive">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="#">Theo dõi</i></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="index.html">Tra cứu</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-3" style="padding-right: 0px;">
+                <form class="form-inline" style="padding-bottom: 5px;">
+                    <div class="form-group" style="width: 100%;">
+                        <select id="cbo_dviqly" class="form-control">
+                                <option value="PK0100">Điện lực Biên Hòa</option>
+                                <option value="PK0200">Điện lực Thống Nhất</option>
+                                <option value="PK0300">Điện lực Trị An</option>
+                                <option value="PK0400">Điện lực Long Khánh</option>
+                                <option value="PK0500">Điện lực Xuân Lộc</option>
+                                <option value="PK0600">Điện lực Định Quán</option>
+                                <option value="PK0700">Điện lực Long Thành</option>
+                                <option value="PK0800">Điện lực Nhơn Trạch</option>
+                                <option value="PK0900">Điện lực Cẩm Mỹ</option>
+                                <option value="PK1000">Điện lực Trảng Bom</option>
+                                <option value="PK1100">Điện lực Biên Hòa 2</option>
+                    </select>
+                        <!-- <button type="submit" class="btn btn-primary" onclick="getTheodoi()">
+                                <span id="spinner" class="spinner-border spinner-border-sm" role="status" aria-hidden="true" hidden></span>
+                                <i class=""></i>
+                        </button> -->
+                        <button class="btn btn-primary float-right pull-right " type="button" onclick="getTheodoi()">
+                                <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+                </form>
+                <div class="list-group" id="lstKH" role="tablist">
+                    <!-- <a href="#" class="list-group-item list-group-item-action" onclick="getItem('1234')">
+                        <div class="row">
+                            <h6 class="list-group-item-heading col-md-11">Pham Phu Quoc</h6>
+                            <button class="btn btn-outline-danger btn-sm btn-circle col-md-1"><i class = "fa fa-heart"></i></button >
+                        </div>
+                    </a> -->
+                </div>
+                <!-- <ul class="list-group">
+                    <li class="list-group-item">
+                        <span class="list-group-item-heading">Lalalalaiaia</span>
+                        <button class="btn btn-circle btn-outline-danger btn-xs pull-right remove-item">
+                            <i class = "fa fa-heart"></i>
+                        </button>
+                    </li>
+                </ul> -->
+            </div>
+
+            <div class="col-md-9 p-r-1" style="padding-left: 5px;">
+
+                <div class="card mb-4">
+                    <div class="card-header py-3">
+                        <div class="row">
+                            <h6 class="m-0 font-weight-bold text-primary col-md-3">Thông tin khách hàng</h6>
+                            <div class="col-md-9">
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" name="optNotes" id="optNoteX" value="X">
+                                    <label class="form-check-label" for="optNoteX">Không quan tâm</label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" name="optNotes" id="optNoteT" value="T">
+                                    <label class="form-check-label" for="optNoteT">Quan tâm</label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" name="optNotes" id="optNoteR" value="R">
+                                    <label class="form-check-label" for="optNoteR">Theo dõi</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-7">
+                                <p style="line-height:0px;">KH:
+                                    <b id="ma_khang" class="text-success"></b>-<b id="ma_gcs" class="text-warning"></b>-<b id="ten_khang" class="text-primary"></b>
+                                </p>
+                                <p>Địa chỉ:
+                                    <a id="dchi_khang"></a>
+                                </p>
+                                <p style="line-height:0px;">Điện thoại:
+                                    <b id="dthoai"></b>-<b id="dthoai2"></b> Email: <b id="email"></b>
+                                </p>
+                                <p>Chuỗi giá: <b id="chuoi_gia"></b></p>
+                            </div>
+                            <div class="col-md-5">
+                                <p style="line-height:0px;">Số No : <b id="so_cto" class="text-danger"></b>-<b id="loai_cto"></b>-<b id="ma_cloai"></b>-<b id="ten_cloai"></b></p>
+                                <p>Ngày treo: <b id="ngay_bdong"></b></p>
+                                <p style="line-height:0px;">Mã sổ: <b id="ma_sogcs"></b>-<b id="lich_ghi" class="text-success"></b>-<b id="ten_sogcs"></b></p>
+                                <p>Trạm: <b id="ma_tram" class="text-success"></b>-<b id="loai_tram" class="text-danger"></b><b id="ten_tram"></b></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <ul class="nav nav-tabs">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#tabHD" role="tab" data-toggle="tab">Hóa đơn</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#tabTS" role="tab" data-toggle="tab">Thông số</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#tabBD" role="tab" data-toggle="tab">Biểu đồ</a>
+                    </li>
+                </ul>
+                <div class="tab-content">
+
+                    <div role="tabpanel" class="tab-pane active" id="tabHD" style="padding-top: 5px;">
+                        <div class="card mb-4">
+                            <div class="card-header py-3">
+                                <button class="btn btn-primary mb-2" onclick="loadData()">Thực hiện</button>
+                            </div>
+                            <div class="table-responsive-sm" style="padding-top: 5px; margin: 5px;">
+                                <table id="table_hdn" class="table table-hover table-striped">
+                                    <thead>
+                                        <tr>
+                                            <th scope="col">#</th>
+                                            <th scope="col">Mã KH</th>
+                                            <th scope="col">Mã GCS</th>
+                                            <th scope="col">Năm-tháng</th>
+                                            <th scope="col">Kỳ</th>
+                                            <th scope="col">Ngày CK</th>
+                                            <th scope="col">Loại</th>
+                                            <th scope="col">kWh</th>
+                                            <th scope="col">Cosfi</th>
+                                            <th scope="col">kCosfi</th>
+                                            <th scope="col">Số tiền</th>
+                                            <th scope="col">Thuế GTGT</th>
+                                            <th scope="col">Tổng tiền</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="tbl_body">
+
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div role="tabpanel" class="tab-pane" id="tabTS" style="padding-top: 5px;">
+                        <div class="card mb-4">
+                            <div class="card-header py-3">
+                                <div class="row">
+                                    <div class="col-md-3">
+                                        <label for="tsvhTuNgay">Từ ngày</label>
+                                        <input class="form-control" id="tsvhTuNgay">
+                                    </div>
+                                    <div class="col-md-3">
+                                        <label for="tsvhDenNgay">Đến ngày</label>
+                                        <input class="form-control" id="tsvhDenNgay">
+                                    </div>
+                                    <button class="btn btn-primary" onclick="loadTSVH()">Thực hiện</button>
+                                </div>
+                            </div>
+                            <div class="table-responsive-sm" style="padding-top: 5px; margin: 5px;">
+                                <table id="table_tsvh" class="table table-hover table-striped">
+                                    <thead>
+                                        <tr>
+                                            <th scope="col">#</th>
+                                            <th scope="col" style="width: 100px;">Thời điểm đo</th>
+                                            <th scope="col">Hệ số</th>
+                                            <th scope="col">Pha</th>
+                                            <th scope="col">U(V)</th>
+                                            <th scope="col">I(A)</th>
+                                            <th scope="col">Góc</th>
+                                            <th scope="col">Cos</th>
+                                            <th scope="col">P(kW)</th>
+                                            <th scope="col">Q(kVar)</th>
+                                            <th scope="col">F(Hz)</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="tbl_tsvh_body">
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div role="tabpanel" class="tab-pane" id="tabBD" style="padding-top: 5px;">
+                        <div class="card shadow mb-4">
+                            <div class="card-header py-3">
+                                <h6 class="m-0 font-weight-bold text-primary">Biểu đồ thông số vận hành</h6>
+                            </div>
+                            <div class="card-body">
+                                <div class="chart-area">
+                                    <canvas id="myAreaChart"></canvas>
+                                </div>
+                                <hr>
+                                <button class="btn btn-primary">Refresh</button>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- <p class="text-primary" style="line-height:0px;">123</p>
+    <p class="text-primary" style="line-height:0px;">321</p> -->
+    <!-- PWA -->
+    <script src="js/main.js "></script>
+    <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js "></script> -->
+    <!-- <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js " integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN " crossorigin="anonymous "></script> -->
+    <!-- <script src="https://code.jquery.com/jquery-3.3.1.js "></script> -->
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <!-- bootstrap -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <!-- dataTables -->
+    <script src="vendor/datatables/jquery.dataTables.min.js"></script>
+    <script src="vendor/datatables/dataTables.bootstrap4.min.js"></script>
+    <!-- datetimepicker -->
+    <script src="vendor/datetimepicker/js/moment.min.js" type="text/javascript"></script>
+    <script src="vendor/datetimepicker/js/bootstrap-datetimepicker.min.js" type="text/javascript"></script>
+    <!-- Chart -->
+    <script src="vendor/Chart/Chart.min.js"></script>
+    <!-- Common -->
+    <script src="js/theodoi.js"></script>
+
+</body>
+
+</html>
+
+
+<!-- https://www.youtube.com/watch?v=LMnJG3Oxrrw -->
